@@ -4,7 +4,7 @@
 
 ## | Introduction
 
-**Copula**  **C**onformal **P**rediction algorithm for multivariate, multi-step **T**ime** S**eries (CopulaCPTS) is a conformal prediction algorithm with full-horizon validity guarantee. 
+**Copula**  **C**onformal **P**rediction algorithm for multivariate, multi-step **T**ime **S**eries (CopulaCPTS) is a conformal prediction algorithm with full-horizon validity guarantee. 
 
 ## | Citation
 
