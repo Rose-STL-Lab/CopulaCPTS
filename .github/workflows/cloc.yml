@@ -1,0 +1,52 @@
+name: Count Lines of Code
+
+# Controls when the action will run. Triggers the workflow on push or pull request 
+# events but only for the main branch
+on: [pull_request]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  # This workflow contains a single job called "build"
+  cloc:
+
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Runs djdefi/cloc-action
+      - name: Install and run cloc
+        run: |
+          sudo apt-get install cloc
+          cloc src --csv --quiet --report-file=cloc_report.csv
+        
+      - name: Read CSV
+        id: csv
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./cloc_report.csv
+
+      - name: Create MD
+        uses: petems/csv-to-md-table-action@master
+        id: csv-table-output
+        with:
+          csvinput: ${{ steps.csv.outputs.content }}
+      
+      - name: Write file
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: ./cloc_report.md
+          write-mode: overwrite
+          contents: |
+            ${{steps.csv-table-output.outputs.markdown-table}}
+
+      - name: PR comment with file
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          filePath: ./cloc_report.md

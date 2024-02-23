@@ -1,0 +1,17 @@
+name: Checks python code for linting
+
+on: [pull_request]
+
+jobs:
+  
+  # This workflow contains a single job called "test"
+  check_pylint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: GitHub Action for pylint
+        uses: marian-code/python-lint-annotate@v3
