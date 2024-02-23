@@ -8,7 +8,7 @@ import pickle
 import os 
 
 
-from models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm
+from src.models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm
 
 def experiment(train, valid, test, name='exp'):
     rnn_model = rnn.rnn(embedding_size=24, input_size=2, output_size=2, horizon=24)

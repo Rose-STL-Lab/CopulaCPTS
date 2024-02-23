@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import torch
 import pickle
-from models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm, vanila_copula
+from src.models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm, vanila_copula
 
 
 datapath = '../../robotics_project/PythonRobotics/AerialNavigation/drone_3d_trajectory_following/data/dataset_smallnoise.npy'

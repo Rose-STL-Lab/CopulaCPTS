@@ -4,7 +4,7 @@ import pandas as pd
 import torch
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
-from models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm, vanila_copula
+from src.models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm, vanila_copula
 
 class COVIDDataset(torch.utils.data.Dataset):
     def __init__(self, X, Y, sequence_lengths):
