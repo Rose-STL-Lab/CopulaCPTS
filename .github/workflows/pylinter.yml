@@ -21,6 +21,6 @@ jobs:
           ignore: "E402,E731,F541,W291,E122,E127,F401,E266,E241,C901,E741,W293,F811,W503,E203,F403,F405,B007"
           max-line-length: "150"
           path: "src"
-          plugins: "flake8-bugbear==22.1.11 flake8-black"
+          plugins: "flake8-bugbear==22.1.11"
       #- name: GitHub Action for pylint
       #  uses: marian-code/python-lint-annotate@v3
