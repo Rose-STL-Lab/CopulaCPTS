@@ -230,9 +230,6 @@ def plot_and_loss(eval_model, data_source, epoch):
 
 def predict_future(eval_model, data_source, steps):
     eval_model.eval()
-    total_loss = 0.0
-    test_result = torch.Tensor(0)
-    truth = torch.Tensor(0)
     _, data = get_batch(data_source, 0, 1)
     with torch.no_grad():
         for i in range(0, steps, 1):
@@ -290,7 +287,7 @@ for epoch in range(1, epochs + 1):
     epoch_start_time = time.time()
     train(train_data)
 
-    if epoch % 10 is 0:
+    if epoch % 10 == 0:
         val_loss = plot_and_loss(model, val_data, epoch)
         predict_future(model, val_data, 200)
     else:

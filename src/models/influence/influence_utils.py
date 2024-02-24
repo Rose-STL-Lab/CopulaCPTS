@@ -139,7 +139,7 @@ def perturb_model_(model, perturb):
     new_model_state = collections.OrderedDict.fromkeys(model.state_dict().keys())
 
     for key in new_model_dict.keys():
-        if type(model.__dict__[key]) == torch.Tensor:
+        if type(model.__dict__[key]) is torch.Tensor:
             new_model_dict[key] = model.__dict__[key].clone()
         else:
             new_model_dict[key] = copy.deepcopy(model.__dict__[key])

@@ -1,6 +1,6 @@
 import numpy as np
 import random
-import os, errno
+import errno
 import sys
 from tqdm import trange
 
@@ -181,10 +181,6 @@ class lstm_seq2seq(nn.Module):
             for it in tr:
 
                 batch_loss = 0.0
-                batch_loss_tf = 0.0
-                batch_loss_no_tf = 0.0
-                num_tf = 0
-                num_no_tf = 0
 
                 for b in range(n_batches):
                     # select data

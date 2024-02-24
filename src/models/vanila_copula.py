@@ -59,7 +59,6 @@ class vanila_copula:
         x_fun = [empirical_copula_loss(x, alphas, epsilon) for x in x_candidates]
         x_sorted = sorted(list(zip(x_fun, x_candidates)))
 
-        mapping_shape = self.nonconformity.shape[0]
         mapping = {
             i: sorted(self.nonconformity[:, i].tolist()) for i in range(alphas.shape[1])
         }
