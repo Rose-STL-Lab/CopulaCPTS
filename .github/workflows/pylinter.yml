@@ -10,8 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: GitHub Action for pylint
-        uses: marian-code/python-lint-annotate@v3
+      # - name: Checkout repo
+      #   uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Python Linter
+        uses: sunnysid3up/python-linter@master
+        with:
+          source: "src"
+          mypy-options: "--ignore-missing-imports --show-error-codes"
+          #pylint-options: "--rcfile=setup.cfg"
+          isort-options: "-w 100"
+          django: true
+      #- name: GitHub Action for pylint
+      #  uses: marian-code/python-lint-annotate@v3
