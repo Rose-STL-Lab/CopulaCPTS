@@ -1,6 +1,7 @@
 copulae==0.7.7
 keras==2.13.1
 matplotlib==3.5.0
+numpy==1.23.5
 pandas==1.3.4
 scikit_learn==1.0.1
 scipy==1.12.0
