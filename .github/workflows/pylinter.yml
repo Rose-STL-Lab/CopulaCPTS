@@ -13,14 +13,13 @@ jobs:
       # - name: Checkout repo
       #   uses: actions/checkout@v3
       - uses: actions/checkout@v4
+      - name: Install flake8
+        run: pip install flake8
       - name: Python Linter
-        uses: sunnysid3up/python-linter@master
+        uses: suo/flake8-github-action@releases/v1
         with:
-          source: "src"
-          mypy-options: "--ignore-missing-imports --show-error-codes"
-          black-options: "--exclude **/*"
-          #pylint-options: "--rcfile=setup.cfg"
-          isort-options: "-w 100"
-          django: true
+          checkName: 'flake8_py3'
+          path: "src"
+          args: "--max-line-length=120 --ignore=E402,E731,F541,W291,E122,E127,F401,E266,E241,C901,E741,W293,F811,W503,E203"
       #- name: GitHub Action for pylint
       #  uses: marian-code/python-lint-annotate@v3

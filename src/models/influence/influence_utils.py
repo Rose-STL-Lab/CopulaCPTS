@@ -24,7 +24,7 @@ def stack_torch_tensors(input_tensors):
 
 
 def get_numpy_parameters(model):
-    """ Recovers the parameters of a pytorch model in numpy format."""
+    """Recovers the parameters of a pytorch model in numpy format."""
 
     params = []
 
@@ -35,12 +35,16 @@ def get_numpy_parameters(model):
 
 
 def exact_hessian(model):
-    grad_params = torch.autograd.grad(model.loss, model.parameters(), retain_graph=True, create_graph=True)
+    grad_params = torch.autograd.grad(
+        model.loss, model.parameters(), retain_graph=True, create_graph=True
+    )
     grad_params = stack_torch_tensors(grad_params)
     temp = []
 
     for u in range(len(grad_params)):
-        second_grad = torch.autograd.grad(grad_params[u], model.parameters(), retain_graph=True)
+        second_grad = torch.autograd.grad(
+            grad_params[u], model.parameters(), retain_graph=True
+        )
         temp.append(stack_torch_tensors(second_grad))
 
     Hessian = torch.cat(temp, dim=1)
@@ -48,12 +52,16 @@ def exact_hessian(model):
 
 
 def exact_hessian_ij(model, loss_ij):
-    grad_params = torch.autograd.grad(loss_ij, model.parameters(), retain_graph=True, create_graph=True)
+    grad_params = torch.autograd.grad(
+        loss_ij, model.parameters(), retain_graph=True, create_graph=True
+    )
     grad_params = stack_torch_tensors(grad_params)
     temp = []
 
     for u in range(len(grad_params)):
-        second_grad = torch.autograd.grad(grad_params[u], model.parameters(), retain_graph=True)
+        second_grad = torch.autograd.grad(
+            grad_params[u], model.parameters(), retain_graph=True
+        )
         temp.append(stack_torch_tensors(second_grad))
     Hessian = torch.cat(temp, dim=1)
 
@@ -80,7 +88,9 @@ def hessian_vector_product(loss, model, v):
 
     # First backprop
     first_grads = stack_torch_tensors(
-        torch.autograd.grad(loss, model.parameters(), retain_graph=True, create_graph=True)
+        torch.autograd.grad(
+            loss, model.parameters(), retain_graph=True, create_graph=True
+        )
     )
 
     """
@@ -92,7 +102,8 @@ def hessian_vector_product(loss, model, v):
     """
 
     elemwise_products = torch.mm(
-        first_grads.view(-1, first_grads.shape[0]).float(), v[0].view(first_grads.shape[0], -1).float()
+        first_grads.view(-1, first_grads.shape[0]).float(),
+        v[0].view(first_grads.shape[0], -1).float(),
     )
 
     # Second backprop
@@ -146,8 +157,12 @@ def perturb_model_(model, perturb):
 
     for param in perturbed_model.parameters():
         if len(param.data.shape) > 1:
-            new_size = np.max((1, param.data.shape[0])) * np.max((1, param.data.shape[1]))
-            param.data = new_param_[index : index + new_size].view(param.data.shape[0], param.data.shape[1])
+            new_size = np.max((1, param.data.shape[0])) * np.max(
+                (1, param.data.shape[1])
+            )
+            param.data = new_param_[index : index + new_size].view(
+                param.data.shape[0], param.data.shape[1]
+            )
         else:
             new_size = param.data.shape[0]
             param.data = np.squeeze(new_param_[index : index + new_size])

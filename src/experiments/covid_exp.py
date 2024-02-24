@@ -28,7 +28,7 @@ def experiment(train, valid, test, target_len=50, name="exp"):
     encdec_model = lstm.lstm_seq2seq(
         input_size=1, output_size=1, embedding_size=128, target_len=target_len
     )
-    models = [rnn_model]  # , encdec_model]
+    models = [rnn_model, encdec_model]
 
     x_train = train.X
     y_train = train.Y
@@ -82,7 +82,7 @@ def experiment(train, valid, test, target_len=50, name="exp"):
 
     epsilon_ls = np.linspace(0.05, 0.50, 10)
 
-    for k, uqmethodß in UQ.items():
+    for k, uqmethod in UQ.items():
         print(k)
         area = []
         coverage = []

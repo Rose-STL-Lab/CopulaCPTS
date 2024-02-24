@@ -74,7 +74,6 @@ def influence_stochastic_estimation(model, train_index, batch_size=100, damp=1e-
     IHVP_ = [grads[_].clone().detach() for _ in range(len(train_index))]
 
     for j in range(recursion_depth):
-        print('recursing', j )
         sampled_indx = np.random.choice(list(range(NUM_SAMPLES)), SUBSAMPLES, replace=False)
 
         sampled_loss = model.loss_fn(model.y[sampled_indx], model.predict(model.X[sampled_indx, :]))
