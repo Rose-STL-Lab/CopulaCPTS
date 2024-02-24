@@ -18,6 +18,7 @@ jobs:
         with:
           source: "src"
           mypy-options: "--ignore-missing-imports --show-error-codes"
+          black-options: "--exclude **/*"
           #pylint-options: "--rcfile=setup.cfg"
           isort-options: "-w 100"
           django: true
