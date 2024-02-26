@@ -1,1 +1,1 @@
-python -m experiments.particle_exp
+python -m src.experiments.particle_exp
