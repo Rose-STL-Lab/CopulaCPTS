@@ -12,6 +12,8 @@ from src.models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm
 
 
 def experiment(train, valid, test, name="exp"):
+    
+    torch._C._set_mkldnn_enabled(False)  # this is to avoid a bug in pytorch that causes the code to crash
     rnn_model = rnn.rnn(embedding_size=24, input_size=2, output_size=2, horizon=24)
     encdec_model = lstm.lstm_seq2seq(input_size=2, embedding_size=24, target_len=24)
     models = [rnn_model, encdec_model]
