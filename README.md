@@ -36,10 +36,10 @@ Please see below for links and refer to Section 5.1 and Appendix C.1 in the pape
 
 ## | Training and Testing
 
-To illustrate the usage of our code, we have included pre-generated NRI Particles data in this repository. To replciate the experiment, simply run:
+To illustrate the usage of our code, we have included pre-generated NRI Particles data in this repository. To replicate the experiment, simply run:
 
 ```bash
-python particle_exp.py
+./run_experiment.sh
 ```
 
 ## | Recreate plots in the paper
