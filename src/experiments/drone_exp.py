@@ -6,8 +6,7 @@ import pickle
 from src.models import rnn, lstm, bjrnn, cfrnn, copulaCPTS, dplstm, vanila_copula
 
 
-datapath = "../../robotics_project/PythonRobotics/AerialNavigation/\
-    drone_3d_trajectory_following/data/dataset_smallnoise.npy"
+datapath = "data/drone_dataset_smallnoise.npy"
 
 data = np.load(datapath, allow_pickle=True)
 x_downsample = data[:, ::3, :].astype(np.float32)

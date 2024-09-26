@@ -104,7 +104,7 @@ def experiment(train, valid, test, target_len=50, name="exp"):
 
 def main():
 
-    with open("processed_data/covid_conformal_scaled.pkl", "rb") as f:
+    with open("data/covid_conformal_scaled.pkl", "rb") as f:
         train_dataset, calibration_dataset, test_dataset = pickle.load(f)
 
     for i in range(3):

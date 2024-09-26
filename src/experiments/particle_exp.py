@@ -93,18 +93,18 @@ def main():
 
     os.makedirs("trained", exist_ok=True)
 
-    train = "nridata/loc_train_springs2_noise_0.05.npy"
-    valid = "nridata/loc_valid_springs2_noise_0.05.npy"
-    test = "nridata/loc_test_springs2_noise_0.05.npy"
+    train = "data/nridata/loc_train_springs2_noise_0.05.npy"
+    valid = "data/nridata/loc_valid_springs2_noise_0.05.npy"
+    test = "data/nridata/loc_test_springs2_noise_0.05.npy"
 
     for i in range(3):
         res = experiment(train, valid, test, name="particle5_run" + str(i))
         print("run " + str(i) + "done")
         del res
 
-    train = "nridata/loc_train_springs2_noise_0.01.npy"
-    valid = "nridata/loc_valid_springs2_noise_0.01.npy"
-    test = "nridata/loc_test_springs2_noise_0.01.npy"
+    train = "data/nridata/loc_train_springs2_noise_0.01.npy"
+    valid = "data/nridata/loc_valid_springs2_noise_0.01.npy"
+    test = "data/nridata/loc_test_springs2_noise_0.01.npy"
 
     for i in range(3):
         res = experiment(train, valid, test, name="particle1_run" + str(i))

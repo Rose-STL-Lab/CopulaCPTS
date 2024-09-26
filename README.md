@@ -11,11 +11,11 @@
 [[2212.03281] Copula Conformal Prediction for Multi-step Time Series Forecasting](https://arxiv.org/abs/2212.03281)
 
 ```
-@article{sun2022copula,
-  title={Copula Conformal Prediction for Multi-step Time Series Forecasting},
-  author={Sun, Sophia and Yu, Rose},
-  journal={arXiv preprint arXiv:2212.03281},
-  year={2022}
+@inproceedings{sun2023copula,
+  title={Copula Conformal prediction for multi-step time series prediction},
+  author={Sun, Sophia Huiwen and Yu, Rose},
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2023}
 }
 ```
 
@@ -32,6 +32,7 @@ Please see below for links and refer to Section 5.1 and Appendix C.1 in the pape
 
 [Particles](https://github.com/mitmul/chainer-nri) | [Drone](https://github.com/AtsushiSakai/PythonRobotics)| [Epidemiology](https://coronavirus.data.gov.uk/details/download) | [Argoverse 1](https://www.argoverse.org/av1.html)
 
+The processed files for Particles, Drone, and Epidemiology datasets are located in the `./data` directory. If you want to reporduce the visualizations, you might need to refer to the original sources for metadata.
 
 
 ## | Training and Testing
